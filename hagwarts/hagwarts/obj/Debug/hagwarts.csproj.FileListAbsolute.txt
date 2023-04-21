@@ -1,0 +1,8 @@
+E:\uni\pishrafte\C#\project2\mini_project2_hogwarts-r-shirani\hagwarts\hagwarts\bin\Debug\hagwarts.exe.config
+E:\uni\pishrafte\C#\project2\mini_project2_hogwarts-r-shirani\hagwarts\hagwarts\bin\Debug\hagwarts.exe
+E:\uni\pishrafte\C#\project2\mini_project2_hogwarts-r-shirani\hagwarts\hagwarts\bin\Debug\hagwarts.pdb
+E:\uni\pishrafte\C#\project2\mini_project2_hogwarts-r-shirani\hagwarts\hagwarts\obj\Debug\hagwarts.csproj.AssemblyReference.cache
+E:\uni\pishrafte\C#\project2\mini_project2_hogwarts-r-shirani\hagwarts\hagwarts\obj\Debug\hagwarts.csproj.SuggestedBindingRedirects.cache
+E:\uni\pishrafte\C#\project2\mini_project2_hogwarts-r-shirani\hagwarts\hagwarts\obj\Debug\hagwarts.csproj.CoreCompileInputs.cache
+E:\uni\pishrafte\C#\project2\mini_project2_hogwarts-r-shirani\hagwarts\hagwarts\obj\Debug\hagwarts.exe
+E:\uni\pishrafte\C#\project2\mini_project2_hogwarts-r-shirani\hagwarts\hagwarts\obj\Debug\hagwarts.pdb
