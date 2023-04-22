@@ -47,7 +47,7 @@ namespace hagwarts
                 file.Close();
             }
             //*****************************************************************************
-            Console.WriteLine("hi");
+            Console.WriteLine("is it ok?");
             Console.ReadKey();
         }
     }
