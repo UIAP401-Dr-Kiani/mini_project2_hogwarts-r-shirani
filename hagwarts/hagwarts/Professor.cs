@@ -8,6 +8,6 @@ namespace hagwarts
 {
     public class Professor
     {
-
+        public bool SimultaneousTeaching { get; set; }
     }
 }
