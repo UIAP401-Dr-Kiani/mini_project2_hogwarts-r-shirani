@@ -10,7 +10,7 @@ namespace hagwarts
     {
         public GroupType GroupType { get; set; }
         public int score { get; set; }
-        public List<AllowedPerson> GroupMembers { get; set; }
-        public List<AllowedPerson> QuidditchPlayers { get; set; }
+        public List<string> GroupMembers { get; set; }
+        public List<string> QuidditchPlayers { get; set; }
     }
 }
