@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace hagwarts
 {
-    internal class Person
+    public class Person
     {
+        public string PersonFirstName { get; set; }
+        public string PersonLastName { get; set; }
+        public string PersonBirthDay { get; set; }
+        public string PersonGender { get; set; }
+        public string PersonFatherName { get; set; }
+        public string PersonUserName { get; set; }
+        public string PersonPassword { get; set; }
+
     }
 }
