@@ -15,6 +15,7 @@ namespace hagwarts
         public string PersonFatherName { get; set; }
         public string PersonUserName { get; set; }
         public string PersonPassword { get; set; }
+        public BreedType BreedType { get; set; }
 
     }
 }
