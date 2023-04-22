@@ -27,8 +27,21 @@ namespace hagwarts
                     p.FatherName=human[4];
                     p.UserName=human[5];
                     p.Password=human[6];
-                    p.BreedType = human[7];
-                    p.Role=human[8];
+                    //----------------------------------for blood type
+                    if (human[7] == "Pure blood")
+                        p.BreedType = BreedType.PureBlood;
+                    else if(human[7] == "Half blood")
+                        p.BreedType = BreedType.HalfBlood;
+                    else if (human[7] == "Muggle blood")
+                        p.BreedType = BreedType.MuggleBlood;
+                    //------------------------------------------------
+
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for role type
+                    if (human[8] == "teacher")
+                        p.Role = Role.teacher;
+                    else if (human[8] == "student")
+                        p.Role = Role.student;
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     persons.Add(p);
                 }
                 file.Close();
