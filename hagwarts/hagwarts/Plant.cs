@@ -8,7 +8,7 @@ namespace hagwarts
 {
     public class Plant
     {
-       public string PlantName { get; set; }
-        public int PlantNumber { get; set; }
+       public string Name { get; set; }
+        public int Number { get; set; }
     }
 }
