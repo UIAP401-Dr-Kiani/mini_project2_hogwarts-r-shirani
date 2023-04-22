@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace hagwarts
 {
-    public class Pet
+    public enum Pet
     {
-
+        rat,
+        cat,
+        owl
     }
 }
