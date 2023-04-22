@@ -8,6 +8,8 @@ namespace hagwarts
 {
     public class Student
     {
-
+        public List<string> PassedUnits { get; set; }
+        public int Term { get; set; }
+        public int DormitoryNumbere { get; set; }
     }
 }
