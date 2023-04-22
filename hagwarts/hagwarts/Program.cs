@@ -47,7 +47,7 @@ namespace hagwarts
                 file.Close();
             }
             //*****************************************************************************
-            Dumbledore.SendLetter(persons);
+            Dumbledore.SendLetter(persons);//send letter to students
             Console.ReadKey();
         }
     }
