@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace hagwarts
 {
-    public class Chemistry
+    public class Chemistry:Lesson
     {
-
+        public List<string> ChamicalMaterials { get; set; }  
     }
 }

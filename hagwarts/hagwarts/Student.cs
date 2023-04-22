@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace hagwarts
 {
-    public class Student
+    public class Student:AllowedPerson
     {
         public List<string> PassedUnits { get; set; }
         public int Term { get; set; }

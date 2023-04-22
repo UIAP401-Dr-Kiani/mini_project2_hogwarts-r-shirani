@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace hagwarts
 {
-    public class Botany
+    public class Botany:Lesson
     {
         public List<string> Semester1Plants { get; set; }
         public List<string> Semester2Plants { get; set; }
