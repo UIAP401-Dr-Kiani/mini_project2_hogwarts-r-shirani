@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace hagwarts
 {
-    public class Sport
+    public class Sport:Lesson
     {
-
+        public string SportType { get; set; }
     }
 }
