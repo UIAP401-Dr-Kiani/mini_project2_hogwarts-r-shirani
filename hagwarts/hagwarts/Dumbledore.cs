@@ -8,6 +8,6 @@ namespace hagwarts
 {
     public class Dumbledore:AllowedPerson
     {
-
+        Dormitory DormitoryList;
     }
 }
