@@ -9,5 +9,17 @@ namespace hagwarts
     public class Dumbledore:AllowedPerson
     {
         Dormitory DormitoryList;
+        public static void SendLetter(List<AllowedPerson> persons)
+        {
+            foreach (AllowedPerson p in persons)
+            {
+                if(p.Role!=Role.teacher)
+                {
+                    p.ReceivedLetter = $"hello dear {p.FirstName},{p.LastName}" +
+                        $"\nwelcome to the Hagwarts";
+                }
+            }
+
+        }
     }
 }
