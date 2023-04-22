@@ -11,14 +11,14 @@ namespace hagwarts
     {
         static void Main(string[] args)
         {
-            List<Person> persons=new List<Person>();
+            List<AllowedPerson> persons=new List<AllowedPerson>();
             //**************************************************************for reading file
             using (StreamReader file=new StreamReader("TXT_DATA.tsv"))
             {
                 string ln;
                 while ((ln = file.ReadLine()) != null)
                 {
-                    Person p=new Person();
+                    AllowedPerson p=new AllowedPerson();
                     string[] human = ln.Split('\t').ToArray<string>();
                     p.FirstName = human[0];
                     p.LastName = human[1];
