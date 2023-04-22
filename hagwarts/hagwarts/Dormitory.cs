@@ -14,19 +14,19 @@ namespace hagwarts
         public int Room { get; set; }
         public int Bed { get; set; }
         public string Gender { get; set; }
-        public Dormitory(string code)//each dormitory has **6floor**10rooms**5beds
+        public Dormitory(int code)//each dormitory has **6floor**10rooms**5beds
         {
-            if(code.Length==3)//room number is not greater than 9
+            if(code/1000==0)//room number is not greater than 9
             {
-                this.Bed =(int)code[0];
-                this.Room = (int)code[1];
-                this.Floor=(int)code[2];
+                this.Bed =code%10;
+                this.Room = (code/10)%10;
+                this.Floor = code/100;
             }
-            else if(code.Length==4)//room number is 10
+            else if(code/1000!=0)//room number is 10
             {
-                this.Bed = (int)code[0];
+                this.Bed =code%10;
                 this.Room =10;
-                this.Floor = (int)code[3];
+                this.Floor =code/1000;
             }
         }
     }
