@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace hagwarts
 {
-    public enum BreedType
+    public class Student
     {
-        HalfBlood,
-        PureBlood,
-        MuggleBlood
+
     }
 }
