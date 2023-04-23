@@ -19,5 +19,16 @@ namespace hagwarts
             int EnterChoice = Convert.ToInt32(Console.ReadLine());
             return EnterChoice;
         }
+        public static int DumbledorMenu()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("Dumbledor Menu...\n");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("please enter your choice:\n");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("1.send letter to students\n2.gardening\n3.EXIT");
+            int EnterChoice = Convert.ToInt32(Console.ReadLine());
+            return EnterChoice;
+        }
     }
 }
