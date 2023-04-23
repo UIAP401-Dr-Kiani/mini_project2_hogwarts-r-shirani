@@ -35,7 +35,6 @@ namespace hagwarts
                     else if (human[7] == "Muggle blood")
                         p.BreedType = BreedType.MuggleBlood;
                     //------------------------------------------------
-
                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for role type
                     if (human[8] == "teacher")
                         p.Role = Role.teacher;
@@ -47,8 +46,6 @@ namespace hagwarts
                 file.Close();
             }
             //*****************************************************************************
-            Dumbledore.SendLetter(persons);//send letter to students
-            //******************************************************************************
             int EnterChoice=Menus.EnterMenu();
             while(EnterChoice!=4)
             {
@@ -57,16 +54,78 @@ namespace hagwarts
                     case 1://dumbledor
                         {
                             int DumbledorChoice=Menus.DumbledorMenu();
+                            switch (DumbledorChoice)
+                            {
+                                case 1://send letter
+                                    {
+                                        Dumbledore.SendLetter(persons);//send letter to students
+                                        break;
+                                    }
+                                case 2://gardening
+                                    {
+                                        break;
+                                    }
+                                case 3://exit
+                                    {
+                                        break;
+                                    }
+                            }
                             break;
                         }
                     case 2://professor
                         {
                             int ProfessorChioce = Menus.ProfessorMenu();
+                            switch (ProfessorChioce)
+                            {
+                                case 1://define lessons
+                                    { 
+                                        break;
+                                    }
+                                case 2://define practice
+                                    {
+                                        break;
+                                    }
+                                case 3://set score for students
+                                    {
+                                        break;
+                                    }
+                                case 4://confrim students grade
+                                    {
+                                        break;
+                                    }
+                                case 5://exit
+                                    {
+                                        break;
+                                    }
+                            }
                             break;
                         }
                     case 3://student
                         {
                             int StudentChoice=Menus.StudentMenu();
+                            switch (StudentChoice)
+                            {
+                                case 1://send letter to dumbledor
+                                    {
+                                        break;
+                                    }
+                                case 2://get information
+                                    {
+                                        break;
+                                    }
+                                case 3://selecting unit
+                                    {
+                                        break;
+                                    }
+                                case 4://upload homeworks
+                                    {
+                                        break;
+                                    }
+                                case 5://exit
+                                    {
+                                        break;
+                                    }
+                            }
                             break ;
                         }
                     case 4://exit
