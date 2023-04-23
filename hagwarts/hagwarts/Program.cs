@@ -49,10 +49,31 @@ namespace hagwarts
             //*****************************************************************************
             Dumbledore.SendLetter(persons);//send letter to students
             //******************************************************************************
-            int Enter = Menus.EnterMenu();
-            int Dumbledor = Menus.DumbledorMenu();
-            int Professor = Menus.ProfessorMenu();
-            int Student = Menus.StudentMenu();
+            int EnterChoice=Menus.EnterMenu();
+            while(EnterChoice!=4)
+            {
+                switch (EnterChoice)
+                {
+                    case 1://dumbledor
+                        {
+                            int DumbledorChoice=Menus.DumbledorMenu();
+                            break;
+                        }
+                    case 2://professor
+                        {
+                            int ProfessorChioce = Menus.ProfessorMenu();
+                            break;
+                        }
+                    case 3://student
+                        {
+                            int StudentChoice=Menus.StudentMenu();
+                            break ;
+                        }
+                    case 4://exit
+                        break;
+                }
+                EnterChoice = Menus.EnterMenu();
+            }
             Console.ReadKey();
         }
     }
