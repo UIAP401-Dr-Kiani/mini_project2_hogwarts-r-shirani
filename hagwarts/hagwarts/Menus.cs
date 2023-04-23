@@ -16,6 +16,7 @@ namespace hagwarts
             Console.WriteLine("please enter your choice:\n");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("1.Dumbledor\n2.student\n3.professor\n4.EXIT");
+            Console.ResetColor();
             int EnterChoice = Convert.ToInt32(Console.ReadLine());
             return EnterChoice;
         }
@@ -27,6 +28,7 @@ namespace hagwarts
             Console.WriteLine("please enter your choice:\n");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("1.send letter to students\n2.gardening\n3.EXIT");
+            Console.ResetColor();
             int DumbledorChoice = Convert.ToInt32(Console.ReadLine());
             return DumbledorChoice;
         }
@@ -38,6 +40,7 @@ namespace hagwarts
             Console.WriteLine("please enter your choice:\n");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("1.define lessons\n2.define practice\n3.set score for students\n4.confirm students grades\n5.EXIT");
+            Console.ResetColor();
             int ProfessorChoice = Convert.ToInt32(Console.ReadLine());
             return ProfessorChoice;
         }
