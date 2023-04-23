@@ -11,9 +11,9 @@ namespace hagwarts
         public static int EnterMenu()
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine("welcome to the Hagwarts...=)\n");
+            Console.WriteLine("welcome to the Hagwarts...");
             Console.ForegroundColor= ConsoleColor.DarkBlue;
-            Console.WriteLine("please enter your choice:\n");
+            Console.WriteLine("please enter your choice:");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("1.Dumbledor\n2.student\n3.professor\n4.EXIT");
             Console.ResetColor();
@@ -23,9 +23,9 @@ namespace hagwarts
         public static int DumbledorMenu()
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine("Dumbledor Menu...\n");
+            Console.WriteLine("Dumbledor Menu...");
             Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("please enter your choice:\n");
+            Console.WriteLine("please enter your choice:");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("1.send letter to students\n2.gardening\n3.EXIT");
             Console.ResetColor();
@@ -35,9 +35,9 @@ namespace hagwarts
         public static int ProfessorMenu()
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine("Professor Menu...\n");
+            Console.WriteLine("Professor Menu...");
             Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("please enter your choice:\n");
+            Console.WriteLine("please enter your choice:");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("1.define lessons\n2.define practice\n3.set score for students\n4.confirm students grades\n5.EXIT");
             Console.ResetColor();
@@ -47,11 +47,11 @@ namespace hagwarts
         public static int StudentMenu()
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine("Student Menu...\n");
+            Console.WriteLine("Student Menu...");
             Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("please enter your choice:\n");
+            Console.WriteLine("please enter your choice:");
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("1.sending letter to DUMBLEDOR for going back to the city\n2.get your information\n3.Selecting unit\n4.upload homeworks");
+            Console.WriteLine("1.sending letter to DUMBLEDOR for going back to the city\n2.get your information\n3.Selecting unit\n4.upload homeworks\n5.EXIT");
             Console.ResetColor();
             int StudentChoice = Convert.ToInt32(Console.ReadLine());
             return StudentChoice;
