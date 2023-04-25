@@ -10,7 +10,7 @@ namespace hagwarts
     {
         public string ClassTime { get; set; }
         public int NumberOfStudents { get; set; }
-        public string LessonCapacity { get; set; }
+        public int Capacity { get; set; }
         public int PresentationSemester { get; set; }
         public string Name { get; set; }
     }
