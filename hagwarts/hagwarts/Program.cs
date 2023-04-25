@@ -14,6 +14,7 @@ namespace hagwarts
             List<AllowedPerson> persons=new List<AllowedPerson>();
             Plant plant=new Plant();
             List <Lesson> lessons=new List<Lesson>();
+            Professor professor = new Professor();
             //**************************************************************for reading file
             using (StreamReader file=new StreamReader("TXT_DATA.tsv"))
             {
@@ -82,7 +83,6 @@ namespace hagwarts
                             {
                                 case 1://define lessons
                                     { 
-                                        Professor professor=new Professor();
                                         professor.DefineLesson(lessons);
                                         break;
                                     }
