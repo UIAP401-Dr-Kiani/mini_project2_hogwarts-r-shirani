@@ -31,5 +31,9 @@ namespace hagwarts
                 ++i;
             }
         }
+        public static void Gardening(Plant plant)
+        {
+            plant.Number += 10;//Planting ten plants
+        }
     }
 }
