@@ -121,34 +121,51 @@ namespace hagwarts
                                     break;
                                 }
                             }
-                            
                             break;
                         }
                     case 3://student
                         {
-                            int StudentChoice=Menus.StudentMenu();
-                            switch (StudentChoice)
+                            Console.WriteLine("please Enter your username:");
+                            string enteredUserName = Console.ReadLine();
+                            Console.WriteLine("please Enter your password:");
+                            string enteredPassWord = Console.ReadLine();
+                            foreach(Person x in persons)
                             {
-                                case 1://send letter to dumbledor
+                                if(x.Password == enteredPassWord && x.UserName == enteredUserName)
+                                {
+                                    int StudentChoice = Menus.StudentMenu();
+                                    switch (StudentChoice)
                                     {
-                                        break;
+                                        case 1://send letter to dumbledor
+                                            {
+                                                break;
+                                            }
+                                        case 2://get information
+                                            {
+                                                break;
+                                            }
+                                        case 3://selecting unit
+                                            {
+                                                break;
+                                            }
+                                        case 4://upload homeworks
+                                            {
+                                                break;
+                                            }
+                                        case 5://exit
+                                            {
+                                                break;
+                                            }
                                     }
-                                case 2://get information
-                                    {
-                                        break;
-                                    }
-                                case 3://selecting unit
-                                    {
-                                        break;
-                                    }
-                                case 4://upload homeworks
-                                    {
-                                        break;
-                                    }
-                                case 5://exit
-                                    {
-                                        break;
-                                    }
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("Error!\nUser with this user name and password wasn;t found\ntry again");
+                                    Console.ResetColor();
+                                    break;
+                                }
                             }
                             break ;
                         }
