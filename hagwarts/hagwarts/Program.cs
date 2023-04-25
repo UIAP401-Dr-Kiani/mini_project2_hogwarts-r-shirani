@@ -11,6 +11,10 @@ namespace hagwarts
     {
         static void Main(string[] args)
         {
+            //****************************************************************all instances
+            Dumbledore dumbledore= new Dumbledore();
+            dumbledore.UserName = "ADMIN";
+            dumbledore.Password = "ADMIN";
             List<AllowedPerson> persons=new List<AllowedPerson>();
             Plant plant=new Plant();
             List <Lesson> lessons=new List<Lesson>();
@@ -56,25 +60,39 @@ namespace hagwarts
                 {
                     case 1://dumbledor
                         {
-                            int DumbledorChoice=Menus.DumbledorMenu();
-                            switch (DumbledorChoice)
+                            Console.WriteLine("please Enter your username:");
+                            string enteredUserName = Console.ReadLine();
+                            Console.WriteLine("please Enter your password:");
+                            string enteredPassWord = Console.ReadLine();
+                            if(enteredUserName==dumbledore.UserName && enteredPassWord==dumbledore.Password)
                             {
-                                case 1://send letter
-                                    {
-                                        Dumbledore.SendLetter(persons);//send letter to students
-                                        break;
-                                    }
-                                case 2://gardening
-                                    {
-                                        Dumbledore.Gardening(plant);
-                                        break;
-                                    }
-                                case 3://exit
-                                    {
-                                        break;
-                                    }
+                                int DumbledorChoice = Menus.DumbledorMenu();
+                                switch (DumbledorChoice)
+                                {
+                                    case 1://send letter
+                                        {
+                                            Dumbledore.SendLetter(persons);//send letter to students
+                                            break;
+                                        }
+                                    case 2://gardening
+                                        {
+                                            Dumbledore.Gardening(plant);
+                                            break;
+                                        }
+                                    case 3://exit
+                                        {
+                                            break;
+                                        }
+                                }
+                                break;
                             }
-                            break;
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Error!\nWRONG Username or Password\ntry again");
+                                Console.ResetColor();
+                                break;
+                            }
                         }
                     case 2://professor
                         {
