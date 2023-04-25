@@ -78,31 +78,50 @@ namespace hagwarts
                         }
                     case 2://professor
                         {
-                            int ProfessorChioce = Menus.ProfessorMenu();
-                            switch (ProfessorChioce)
+                            Console.WriteLine("please Enter your username:");
+                            string enteredUserName=Console.ReadLine();
+                            Console.WriteLine("please Enter your password:");
+                            string enteredPassWord=Console.ReadLine();
+                            foreach(Person x in persons)
                             {
-                                case 1://define lessons
-                                    { 
-                                        professor.DefineLesson(lessons);
-                                        break;
-                                    }
-                                case 2://define practice
+                                if(x.Password==enteredPassWord && x.UserName==enteredUserName)
+                                {
+                                    int ProfessorChioce = Menus.ProfessorMenu();
+                                    switch (ProfessorChioce)
                                     {
-                                        break;
+                                        case 1://define lessons
+                                            {
+                                                professor.DefineLesson(lessons);
+                                                break;
+                                            }
+                                        case 2://define practice
+                                            {
+                                                break;
+                                            }
+                                        case 3://set score for students
+                                            {
+                                                break;
+                                            }
+                                        case 4://confrim students grade
+                                            {
+                                                break;
+                                            }
+                                        case 5://exit
+                                            {
+                                                break;
+                                            }
                                     }
-                                case 3://set score for students
-                                    {
-                                        break;
-                                    }
-                                case 4://confrim students grade
-                                    {
-                                        break;
-                                    }
-                                case 5://exit
-                                    {
-                                        break;
-                                    }
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor= ConsoleColor.Red;
+                                    Console.WriteLine("Error!\nUser with this user name and password wasn;t found\ntry again");
+                                    Console.ResetColor();
+                                    break;
+                                }
                             }
+                            
                             break;
                         }
                     case 3://student
