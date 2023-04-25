@@ -12,6 +12,7 @@ namespace hagwarts
         static void Main(string[] args)
         {
             List<AllowedPerson> persons=new List<AllowedPerson>();
+            Plant plant=new Plant();
             //**************************************************************for reading file
             using (StreamReader file=new StreamReader("TXT_DATA.tsv"))
             {
@@ -63,6 +64,7 @@ namespace hagwarts
                                     }
                                 case 2://gardening
                                     {
+                                        Dumbledore.Gardening(plant);
                                         break;
                                     }
                                 case 3://exit
