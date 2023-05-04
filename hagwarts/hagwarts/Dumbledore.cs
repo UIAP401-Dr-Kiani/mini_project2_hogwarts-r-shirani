@@ -39,7 +39,7 @@ namespace hagwarts
         }
         public void AnswerLetters()
         {
-            foreach (string letter in this.letterFromStudents)//sending tickets to all requests
+            foreach (string letter in letterFromStudents)//sending tickets to all requests
             {
                 if (letter != "ticket was sent")
                     letterFromStudents.Add("ticket was sent");

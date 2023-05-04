@@ -115,9 +115,9 @@ namespace hagwarts
                                     int StudentChoice = Menus.StudentMenu();
                                     switch (StudentChoice)
                                     {
-                                        case 1://send letter to dumbledor
+                                        case 1://send letter to dumbledor for going back to city
                                             {
-                                                student.SendLetterToDumbledor();
+                                                student.SendLetterToDumbledor(x.FirstName, x.LastName, x.FatherName);
                                                 break;
                                             }
                                         case 2://get information
