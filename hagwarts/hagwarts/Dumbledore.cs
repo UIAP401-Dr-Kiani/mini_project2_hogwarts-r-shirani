@@ -9,7 +9,7 @@ namespace hagwarts
     public class Dumbledore:AllowedPerson
     {
         Dormitory DormitoryList;
-        public static void SendLetter(List<AllowedPerson> persons)//need cabin and sit number
+        public static void SendLetterToStudents(List<AllowedPerson> persons)//need cabin and sit number
         {
             int i = 1;
             int trainNumber = 1;

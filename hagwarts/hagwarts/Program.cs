@@ -71,7 +71,7 @@ namespace hagwarts
                                 {
                                     case 1://send letter
                                         {
-                                            Dumbledore.SendLetter(persons);//send letter to students
+                                            Dumbledore.SendLetterToStudents(persons);//send letter to students
                                             break;
                                         }
                                     case 2://gardening
