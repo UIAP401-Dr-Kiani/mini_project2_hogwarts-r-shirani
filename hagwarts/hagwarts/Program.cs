@@ -19,6 +19,7 @@ namespace hagwarts
             Plant plant = new Plant();
             List<Lesson> lessons = new List<Lesson>();
             Professor professor = new Professor();
+            Student student = new Student();
             //**************************************************************for reading file
             using (StreamReader file = new StreamReader("TXT_DATA.tsv"))
             {
@@ -79,7 +80,12 @@ namespace hagwarts
                                             Dumbledore.Gardening(plant);
                                             break;
                                         }
-                                    case 3://exit
+                                    case 3://answer letters frome student to get tickets
+                                        {
+                                            dumbledore.AnswerLetters();
+                                            break;
+                                        }
+                                    case 4://exit
                                         {
                                             break;
                                         }
@@ -111,6 +117,7 @@ namespace hagwarts
                                     {
                                         case 1://send letter to dumbledor
                                             {
+                                                student.SendLetterToDumbledor();
                                                 break;
                                             }
                                         case 2://get information
