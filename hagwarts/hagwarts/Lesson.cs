@@ -13,5 +13,6 @@ namespace hagwarts
         public int Capacity { get; set; }
         public int PresentationSemester { get; set; }
         public string Name { get; set; }
+        public string Professor { get; set; }
     }
 }

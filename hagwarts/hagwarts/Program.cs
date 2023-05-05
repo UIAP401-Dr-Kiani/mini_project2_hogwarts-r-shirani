@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,9 +16,11 @@ namespace hagwarts
             Dumbledore dumbledore = new Dumbledore();
             dumbledore.UserName = "ADMIN";
             dumbledore.Password = "ADMIN";
-            List<Student> persons = new List<Student>();
+            List<AllowedPerson> persons = new List<AllowedPerson>();
             Plant plant = new Plant();
             List<Lesson> lessons = new List<Lesson>();
+            List<Professor> allProfessors = new List<Professor>();
+            List<Student> allStudents = new List<Student>();
             Professor professor = new Professor();
             Student student = new Student();
             Random random = new Random();
@@ -31,66 +34,95 @@ namespace hagwarts
                 string ln;
                 while ((ln = file.ReadLine()) != null)
                 {
-                    Student p = new Student();
+                    AllowedPerson allowedp = new AllowedPerson();
                     string[] human = ln.Split('\t').ToArray<string>();
-                    p.FirstName = human[0];
-                    p.LastName = human[1];
-                    p.BirthDay = human[2];
-                    p.Gender = human[3];
-                    p.FatherName = human[4];
-                    p.UserName = human[5];
-                    p.Password = human[6];
+                    allowedp.FirstName = human[0];
+                    allowedp.LastName = human[1];
+                    allowedp.BirthDay = human[2];
+                    allowedp.Gender = human[3];
+                    allowedp.FatherName = human[4];
+                    allowedp.UserName = human[5];
+                    allowedp.Password = human[6];
                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for blood type
                     if (human[7] == "Pure blood")
-                        p.BreedType = BreedType.PureBlood;
+                        allowedp.BreedType = BreedType.PureBlood;
                     else if (human[7] == "Half blood")
-                        p.BreedType = BreedType.HalfBlood;
+                        allowedp.BreedType = BreedType.HalfBlood;
                     else if (human[7] == "Muggle blood")
-                        p.BreedType = BreedType.MuggleBlood;
+                        allowedp.BreedType = BreedType.MuggleBlood;
                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for role type
                     if (human[8] == "teacher")
-                        p.Role = Role.teacher;
+                    {
+                        int baggage = random.Next(2);//for baggage
+                        if (baggage == 0)
+                            allowedp.Baggage = true;
+                        else
+                            allowedp.Baggage = false;
+                        allowedp.Pet = (Pet)random.Next(0, 3);//for pet
+                        allowedp.GroupName=(GroupType)random.Next(0, 3);//for group name
+                        allowedp.Role = Role.teacher;
+                        professor.Role = Role.teacher;
+                        professor.FirstName = allowedp.FirstName;
+                        professor.LastName = allowedp.LastName;
+                        professor.BirthDay = allowedp.BirthDay;
+                        professor.Gender = allowedp.Gender;
+                        professor.FatherName = allowedp.FatherName;
+                        professor.UserName = allowedp.UserName;
+                        professor.Password = allowedp.Password;
+                        professor.Pet = allowedp.Pet;
+                        professor.Baggage=allowedp.Baggage;
+                        professor.GroupName = allowedp.GroupName;
+                        allProfessors.Add(professor);
+                    }
                     else if (human[8] == "student")
-                        p.Role = Role.student;
-                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for group type
-                    p.GroupName = (GroupType)random.Next(0, 4);
-                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for pet
-                    p.Pet = (Pet)random.Next(0, 3);
-                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for baggage
-                    int baggage = random.Next(2);
-                    if (baggage == 0)
-                        p.Baggage = true;
-                    else
-                        p.Baggage = false;
-                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for dormitory
-
-                    if (p.GroupName == GroupType.Slytherin)
                     {
-                        Dormitory dormitory = new Dormitory(SlytherinDormitoryCode);
-                        p.DormitoryNumbere = dormitory.SlytherinDormitory(SlytherinDormitoryCode);
-                        SlytherinDormitoryCode=p.DormitoryNumbere;
+                        int baggage = random.Next(2);//for baggage
+                        if (baggage == 0)
+                            allowedp.Baggage = true;
+                        else
+                            allowedp.Baggage = false;
+                        allowedp.Pet = (Pet)random.Next(0, 3);//for pet
+                        allowedp.GroupName=(GroupType)random.Next(0, 3);//for group name
+                        allowedp.Role = Role.student;
+                        student.Role = Role.student;
+                        student.FirstName = allowedp.FirstName;
+                        student.LastName = allowedp.LastName;
+                        student.BirthDay = allowedp.BirthDay;
+                        student.Gender = allowedp.Gender;
+                        student.FatherName = allowedp.FatherName;
+                        student.UserName = allowedp.UserName;
+                        student.Password = allowedp.Password;
+                        student.Pet = allowedp.Pet;
+                        student.Baggage = allowedp.Baggage;
+                        student.GroupName = allowedp.GroupName;
+                        //--------------------------------------------------for dormitory code
+                        if (student.GroupName == GroupType.Slytherin)
+                        {
+                            Dormitory dormitory = new Dormitory(SlytherinDormitoryCode);
+                            student.DormitoryNumbere = dormitory.SlytherinDormitory(SlytherinDormitoryCode);
+                            SlytherinDormitoryCode = student.DormitoryNumbere;
+                        }
+                        else if (allowedp.GroupName == GroupType.Ravenclaw)
+                        {
+                            Dormitory dormitory = new Dormitory(RavenclawDormitoryCode);
+                            student.DormitoryNumbere = dormitory.RavenclawDormitory(RavenclawDormitoryCode);
+                            RavenclawDormitoryCode = student.DormitoryNumbere;
+                        }
+                        else if (allowedp.GroupName == GroupType.Gryffindor)
+                        {
+                            Dormitory dormitory = new Dormitory(GryffindorDormitoryCode);
+                            student.DormitoryNumbere = dormitory.GryffindorDormitory(GryffindorDormitoryCode);
+                            GryffindorDormitoryCode = student.DormitoryNumbere;
+                        }
+                        else if (allowedp.GroupName == GroupType.Hufflepuff)
+                        {
+                            Dormitory dormitory = new Dormitory(HufflepuffDormitoryCode);
+                            student.DormitoryNumbere = dormitory.HufflepuffDormitory(HufflepuffDormitoryCode);
+                            HufflepuffDormitoryCode = student.DormitoryNumbere;
+                        }
+                        allStudents.Add(student);
                     }
-                    else if (p.GroupName == GroupType.Ravenclaw)
-                    {
-                        Dormitory dormitory = new Dormitory(RavenclawDormitoryCode);
-                        p.DormitoryNumbere = dormitory.RavenclawDormitory(RavenclawDormitoryCode);
-                        RavenclawDormitoryCode = p.DormitoryNumbere;
-                    }
-                    else if (p.GroupName == GroupType.Gryffindor)
-                    {
-                        Dormitory dormitory = new Dormitory(GryffindorDormitoryCode);
-                        p.DormitoryNumbere = dormitory.GryffindorDormitory(GryffindorDormitoryCode);
-                        GryffindorDormitoryCode= p.DormitoryNumbere;
-                    }
-                    else if (p.GroupName == GroupType.Hufflepuff)
-                    {
-                        Dormitory dormitory = new Dormitory(HufflepuffDormitoryCode);
-                        p.DormitoryNumbere = dormitory.HufflepuffDormitory(HufflepuffDormitoryCode);
-                        HufflepuffDormitoryCode= p.DormitoryNumbere;
-                    }
-                        
-                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                    persons.Add(p);
+                    persons.Add(allowedp);
                 }
                 file.Close();
             }
@@ -116,7 +148,7 @@ namespace hagwarts
                                 {
                                     case 1://send letter
                                         {
-                                            Dumbledore.SendLetterToStudents(persons);//send letter to students
+                                            Dumbledore.SendLetterToStudents(allStudents);//send letter to students
                                             break;
                                         }
                                     case 2://gardening
@@ -151,11 +183,11 @@ namespace hagwarts
                             string enteredUserName = Console.ReadLine();
                             Console.WriteLine("please Enter your password:");
                             string enteredPassWord = Console.ReadLine();
-                            foreach (var x in persons)
+                            foreach (var x in allStudents)
                             {
                                 if (x.Role == Role.student && x.Password == enteredPassWord && x.UserName == enteredUserName)
                                 {
-                                    Console.ForegroundColor= ConsoleColor.DarkGreen;
+                                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("user was found successfuly\n");
                                     Console.ResetColor();
                                     findUser = true;
@@ -169,7 +201,7 @@ namespace hagwarts
                                             }
                                         case 2://get information
                                             {
-                                                Console.ForegroundColor= ConsoleColor.Green;
+                                                Console.ForegroundColor = ConsoleColor.Green;
                                                 Console.WriteLine($"Name: {x.FirstName}\nLastName: {x.LastName}\nfather's name: {x.FatherName}\n" +
                                                     $"gender: {x.Gender}\nbirthday: {x.BirthDay}\nbreed type: {x.BreedType}\npet: {x.Pet}\n" +
                                                     $"baggage: {x.Baggage}\nGroup Name: {x.GroupName}\ncurriculum: {x.Curriculum}\nTerm: {x.Term}\n" +
@@ -222,7 +254,7 @@ namespace hagwarts
                                     {
                                         case 1://define lessons
                                             {
-                                                professor.DefineLesson(lessons);
+                                                professor.DefineLesson(lessons,allProfessors);
                                                 break;
                                             }
                                         case 2://define practice
