@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace hagwarts
 {
@@ -14,6 +11,8 @@ namespace hagwarts
         {
             //****************************************************************all instances
             Dumbledore dumbledore = new Dumbledore();
+            Professor professor = new Professor();
+            Student student = new Student();
             dumbledore.UserName = "ADMIN";
             dumbledore.Password = "ADMIN";
             List<AllowedPerson> persons = new List<AllowedPerson>();
@@ -21,8 +20,6 @@ namespace hagwarts
             List<Lesson> lessons = new List<Lesson>();
             List<Professor> allProfessors = new List<Professor>();
             List<Student> allStudents = new List<Student>();
-            Professor professor = new Professor();
-            Student student = new Student();
             Random random = new Random();
             int SlytherinDormitoryCode = 110;
             int RavenclawDormitoryCode = 110;
@@ -35,6 +32,8 @@ namespace hagwarts
                 while ((ln = file.ReadLine()) != null)
                 {
                     AllowedPerson allowedp = new AllowedPerson();
+                    student = new Student();
+                    professor = new Professor();
                     string[] human = ln.Split('\t').ToArray<string>();
                     allowedp.FirstName = human[0];
                     allowedp.LastName = human[1];
@@ -59,7 +58,7 @@ namespace hagwarts
                         else
                             allowedp.Baggage = false;
                         allowedp.Pet = (Pet)random.Next(0, 3);//for pet
-                        allowedp.GroupName=(GroupType)random.Next(0, 3);//for group name
+                        allowedp.GroupName = (GroupType)random.Next(0, 3);//for group name
                         allowedp.Role = Role.teacher;
                         professor.Role = Role.teacher;
                         professor.FirstName = allowedp.FirstName;
@@ -70,7 +69,7 @@ namespace hagwarts
                         professor.UserName = allowedp.UserName;
                         professor.Password = allowedp.Password;
                         professor.Pet = allowedp.Pet;
-                        professor.Baggage=allowedp.Baggage;
+                        professor.Baggage = allowedp.Baggage;
                         professor.GroupName = allowedp.GroupName;
                         allProfessors.Add(professor);
                     }
@@ -82,7 +81,7 @@ namespace hagwarts
                         else
                             allowedp.Baggage = false;
                         allowedp.Pet = (Pet)random.Next(0, 3);//for pet
-                        allowedp.GroupName=(GroupType)random.Next(0, 3);//for group name
+                        allowedp.GroupName = (GroupType)random.Next(0, 3);//for group name
                         allowedp.Role = Role.student;
                         student.Role = Role.student;
                         student.FirstName = allowedp.FirstName;
@@ -254,7 +253,7 @@ namespace hagwarts
                                     {
                                         case 1://define lessons
                                             {
-                                                professor.DefineLesson(lessons,allProfessors);
+                                                professor.DefineLesson(lessons, allProfessors);
                                                 break;
                                             }
                                         case 2://define practice
