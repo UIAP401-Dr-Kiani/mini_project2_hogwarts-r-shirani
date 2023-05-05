@@ -108,6 +108,9 @@ namespace hagwarts
                             string enteredPassWord = Console.ReadLine();
                             if (enteredUserName == dumbledore.UserName && enteredPassWord == dumbledore.Password)
                             {
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                Console.WriteLine("user was found successfuly\n");
+                                Console.ResetColor();
                                 int DumbledorChoice = Menus.DumbledorMenu();
                                 switch (DumbledorChoice)
                                 {
@@ -152,6 +155,9 @@ namespace hagwarts
                             {
                                 if (x.Role == Role.student && x.Password == enteredPassWord && x.UserName == enteredUserName)
                                 {
+                                    Console.ForegroundColor= ConsoleColor.DarkGreen;
+                                    Console.WriteLine("user was found successfuly\n");
+                                    Console.ResetColor();
                                     findUser = true;
                                     int StudentChoice = Menus.StudentMenu();
                                     switch (StudentChoice)
@@ -163,7 +169,12 @@ namespace hagwarts
                                             }
                                         case 2://get information
                                             {
-                                                Console.WriteLine($"Name:{x.FirstName}\nLastName:{x.LastName}\n");
+                                                Console.ForegroundColor= ConsoleColor.Green;
+                                                Console.WriteLine($"Name: {x.FirstName}\nLastName: {x.LastName}\nfather's name: {x.FatherName}\n" +
+                                                    $"gender: {x.Gender}\nbirthday: {x.BirthDay}\nbreed type: {x.BreedType}\npet: {x.Pet}\n" +
+                                                    $"baggage: {x.Baggage}\nGroup Name: {x.GroupName}\ncurriculum: {x.Curriculum}\nTerm: {x.Term}\n" +
+                                                    $"passed units: {x.PassedUnits}\ndormitory code: {x.DormitoryNumbere}\n");
+                                                Console.ResetColor();
                                                 break;
                                             }
                                         case 3://selecting unit
@@ -202,6 +213,9 @@ namespace hagwarts
                             {
                                 if (x.Role == Role.teacher && x.Password == enteredPassWord && x.UserName == enteredUserName)
                                 {
+                                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                    Console.WriteLine("user was found successfuly\n");
+                                    Console.ResetColor();
                                     findUser = true;
                                     int ProfessorChioce = Menus.ProfessorMenu();
                                     switch (ProfessorChioce)
