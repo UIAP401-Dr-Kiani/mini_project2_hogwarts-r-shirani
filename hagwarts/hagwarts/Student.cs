@@ -13,10 +13,8 @@ namespace hagwarts
         public int DormitoryNumbere { get; set; }
         public void SendLetterToDumbledor(string name,string family,string father)
         {
-            Dumbledore dum = new Dumbledore();
             string letterText = $"hi mr.dumbledor.I am {name},{family},and my father's name is:{father}." +
                 $"I wanna go back to my city.please send me a ticket.Thank you";
-            dum.letterFromStudents.Add(letterText);
         }
     }
 }

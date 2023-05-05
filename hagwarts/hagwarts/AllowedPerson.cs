@@ -13,6 +13,6 @@ namespace hagwarts
         public bool Baggage { get; set; }
         public Role Role { get; set; }
         public string ReceivedLetter { get; set; }
-        public Group GroupName { get; set; }
+        public GroupType GroupName { get; set; }
     }
 }

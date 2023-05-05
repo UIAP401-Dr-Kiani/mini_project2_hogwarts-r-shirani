@@ -20,6 +20,7 @@ namespace hagwarts
             List<Lesson> lessons = new List<Lesson>();
             Professor professor = new Professor();
             Student student = new Student();
+            Random random = new Random();
             //**************************************************************for reading file
             using (StreamReader file = new StreamReader("TXT_DATA.tsv"))
             {
@@ -35,19 +36,28 @@ namespace hagwarts
                     p.FatherName = human[4];
                     p.UserName = human[5];
                     p.Password = human[6];
-                    //----------------------------------for blood type
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for blood type
                     if (human[7] == "Pure blood")
                         p.BreedType = BreedType.PureBlood;
                     else if (human[7] == "Half blood")
                         p.BreedType = BreedType.HalfBlood;
                     else if (human[7] == "Muggle blood")
                         p.BreedType = BreedType.MuggleBlood;
-                    //------------------------------------------------
                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for role type
                     if (human[8] == "teacher")
                         p.Role = Role.teacher;
                     else if (human[8] == "student")
                         p.Role = Role.student;
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for group type
+                    p.GroupName = (GroupType)random.Next(0, 4);
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for pet
+                    p.Pet = (Pet)random.Next(0, 3);
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for baggage
+                    int baggage=random.Next(2);
+                    if (baggage == 0)
+                        p.Baggage = true;
+                    else
+                        p.Baggage = false;
                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     persons.Add(p);
                 }
