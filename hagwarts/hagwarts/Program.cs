@@ -15,19 +15,23 @@ namespace hagwarts
             Dumbledore dumbledore = new Dumbledore();
             dumbledore.UserName = "ADMIN";
             dumbledore.Password = "ADMIN";
-            List<AllowedPerson> persons = new List<AllowedPerson>();
+            List<Student> persons = new List<Student>();
             Plant plant = new Plant();
             List<Lesson> lessons = new List<Lesson>();
             Professor professor = new Professor();
             Student student = new Student();
             Random random = new Random();
+            int SlytherinDormitoryCode = 110;
+            int RavenclawDormitoryCode = 110;
+            int GryffindorDormitoryCode = 110;
+            int HufflepuffDormitoryCode = 110;
             //**************************************************************for reading file
             using (StreamReader file = new StreamReader("TXT_DATA.tsv"))
             {
                 string ln;
                 while ((ln = file.ReadLine()) != null)
                 {
-                    AllowedPerson p = new AllowedPerson();
+                    Student p = new Student();
                     string[] human = ln.Split('\t').ToArray<string>();
                     p.FirstName = human[0];
                     p.LastName = human[1];
@@ -53,12 +57,39 @@ namespace hagwarts
                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for pet
                     p.Pet = (Pet)random.Next(0, 3);
                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for baggage
-                    int baggage=random.Next(2);
+                    int baggage = random.Next(2);
                     if (baggage == 0)
                         p.Baggage = true;
                     else
                         p.Baggage = false;
-                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~for dormitory
+
+                    if (p.GroupName == GroupType.Slytherin)
+                    {
+                        Dormitory dormitory = new Dormitory(SlytherinDormitoryCode);
+                        p.DormitoryNumbere = dormitory.SlytherinDormitory(SlytherinDormitoryCode);
+                        SlytherinDormitoryCode=p.DormitoryNumbere;
+                    }
+                    else if (p.GroupName == GroupType.Ravenclaw)
+                    {
+                        Dormitory dormitory = new Dormitory(RavenclawDormitoryCode);
+                        p.DormitoryNumbere = dormitory.RavenclawDormitory(RavenclawDormitoryCode);
+                        RavenclawDormitoryCode = p.DormitoryNumbere;
+                    }
+                    else if (p.GroupName == GroupType.Gryffindor)
+                    {
+                        Dormitory dormitory = new Dormitory(GryffindorDormitoryCode);
+                        p.DormitoryNumbere = dormitory.GryffindorDormitory(GryffindorDormitoryCode);
+                        GryffindorDormitoryCode= p.DormitoryNumbere;
+                    }
+                    else if (p.GroupName == GroupType.Hufflepuff)
+                    {
+                        Dormitory dormitory = new Dormitory(HufflepuffDormitoryCode);
+                        p.DormitoryNumbere = dormitory.HufflepuffDormitory(HufflepuffDormitoryCode);
+                        HufflepuffDormitoryCode= p.DormitoryNumbere;
+                    }
+                        
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     persons.Add(p);
                 }
                 file.Close();
@@ -132,6 +163,7 @@ namespace hagwarts
                                             }
                                         case 2://get information
                                             {
+                                                Console.WriteLine($"Name:{x.FirstName}\nLastName:{x.LastName}\n");
                                                 break;
                                             }
                                         case 3://selecting unit
@@ -153,7 +185,7 @@ namespace hagwarts
                             if (findUser == false)
                             {
                                 Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Error!\nUser with this user name and password wasn;t found\ntry again");
+                                Console.WriteLine("Error!\nUser with this user name and password wasn't found\ntry again");
                                 Console.ResetColor();
                                 break;
                             }

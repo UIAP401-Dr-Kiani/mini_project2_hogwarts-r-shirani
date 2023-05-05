@@ -11,7 +11,7 @@ namespace hagwarts
     {
         Dormitory DormitoryList;
         public List<string> letterFromStudents { get; set; }
-        public static void SendLetterToStudents(List<AllowedPerson> persons)//need cabin and sit number
+        public static void SendLetterToStudents(List<Student> persons)//need cabin and sit number
         {
             int i = 1;
             int trainNumber = 1;

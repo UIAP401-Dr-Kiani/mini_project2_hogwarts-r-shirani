@@ -29,5 +29,101 @@ namespace hagwarts
                 this.Floor =code/1000;
             }
         }
+        public int SlytherinDormitory(int code)
+        {
+            this.Bed++;
+            if(this.Bed==6)
+            {
+                this.Bed = 1;
+                this.Room++;
+                if(this.Room==11)
+                {
+                    this.Room = 1;
+                    this.Floor++;
+                }
+            }
+            if (this.Room == 10)
+            {
+                int dormitoryNumber = (this.Floor * 1000) + (this.Room * 10) + (this.Bed);
+                return dormitoryNumber;
+            }
+            else
+            {
+                int dormitoryNumber = (this.Floor * 100) + (this.Room * 10) + (this.Bed);
+                return dormitoryNumber;
+            }
+        }
+        public int RavenclawDormitory(int code)
+        {
+            this.Bed++;
+            if (this.Bed == 6)
+            {
+                this.Bed = 1;
+                this.Room++;
+                if (this.Room == 11)
+                {
+                    this.Room = 1;
+                    this.Floor++;
+                }
+            }
+            if (this.Room == 10)
+            {
+                int dormitoryNumber = (this.Floor * 1000) + (this.Room * 10) + (this.Bed);
+                return dormitoryNumber;
+            }
+            else
+            {
+                int dormitoryNumber = (this.Floor * 100) + (this.Room * 10) + (this.Bed);
+                return dormitoryNumber;
+            }
+        }
+        public int GryffindorDormitory(int code)
+        {
+            this.Bed++;
+            if (this.Bed == 6)
+            {
+                this.Bed = 1;
+                this.Room++;
+                if (this.Room == 11)
+                {
+                    this.Room = 1;
+                    this.Floor++;
+                }
+            }
+            if (this.Room == 10)
+            {
+                int dormitoryNumber = (this.Floor * 1000) + (this.Room * 10) + (this.Bed);
+                return dormitoryNumber;
+            }
+            else
+            {
+                int dormitoryNumber = (this.Floor * 100) + (this.Room * 10) + (this.Bed);
+                return dormitoryNumber;
+            }
+        }
+        public int HufflepuffDormitory(int code)
+        {
+            this.Bed++;
+            if (this.Bed == 6)
+            {
+                this.Bed = 1;
+                this.Room++;
+                if (this.Room == 11)
+                {
+                    this.Room = 1;
+                    this.Floor++;
+                }
+            }
+            if (this.Room == 10)
+            {
+                int dormitoryNumber = (this.Floor * 1000) + (this.Room * 10) + (this.Bed);
+                return dormitoryNumber;
+            }
+            else
+            {
+                int dormitoryNumber = (this.Floor * 100) + (this.Room * 10) + (this.Bed);
+                return dormitoryNumber;
+            }
+        }
     }
 }
