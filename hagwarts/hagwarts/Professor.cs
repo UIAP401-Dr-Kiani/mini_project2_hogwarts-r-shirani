@@ -30,5 +30,45 @@ namespace hagwarts
             }
             lessons.Add(newLesson);
         }
+        public void SetScor(List<Student> student)
+        {
+            bool findUser = false, findLesson = false;
+            Console.WriteLine("please enter student's name");
+            string enterStudentName=Console.ReadLine();
+            Console.WriteLine("please enter student's name");
+            string enterStudentFamily=Console.ReadLine();
+            foreach (var x in student)
+            {
+                if(x.FirstName==enterStudentName && x.LastName==enterStudentFamily)
+                {
+                    findUser = true;
+                    Console.WriteLine("please enter lesson:");
+                    string enterStudentLesson=Console.ReadLine();
+                    foreach(var lessonName in x.Curriculum)
+                    {
+                        if(lessonName.Name==enterStudentLesson)
+                        {
+                            findLesson = true;
+                            Console.WriteLine("please enter the grade");
+                            //= Convert.ToDouble(Console.ReadLine());
+                        }
+                    }
+                    if(findLesson==false)
+                    {
+                        Console.ForegroundColor= ConsoleColor.Red;
+                        Console.WriteLine("this lesson was not found in this student's curriculum!");
+                        Console.ResetColor();
+                    }
+                    Console.ResetColor();
+                    break;
+                }
+            }
+            if(findUser==false)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("student was not found\nplease try again");
+                Console.ResetColor();
+            }
+        }
     }
 }
