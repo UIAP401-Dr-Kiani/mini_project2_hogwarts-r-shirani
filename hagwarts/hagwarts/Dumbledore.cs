@@ -32,18 +32,26 @@ namespace hagwarts
                 }
                 ++i;
             }
+            Console.ForegroundColor= ConsoleColor.Green;
+            Console.WriteLine("letter was sent to students successfuly");
+            Console.ResetColor();
         }
         public static void Gardening(Plant plant)
         {
             plant.Number += 10;//Planting ten plants
         }
-        public void AnswerLetters()
+        public void AnswerLetters(List<Student> students)
         {
-            foreach (string letter in letterFromStudents)//sending tickets to all requests
+            foreach (var x in students)//sending tickets to all requests
             {
-                if (letter != "ticket was sent")
-                    letterFromStudents.Add("ticket was sent");
+                if (x.letterToDum== $"hi mr.dumbledor.I am {x.FirstName},{x.LastName},and my father's name is:{x.FatherName}.I wanna go back to my city.please send me a ticket.Thank you")
+                {
+                    x.ReceivedLetter = "ticket was sent";
+                }
             }
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("letter frome students was answerd successfuly");
+            Console.ResetColor();
         }
     }
 }

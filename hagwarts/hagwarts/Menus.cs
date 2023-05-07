@@ -51,7 +51,7 @@ namespace hagwarts
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("please enter your choice:");
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("1.sending letter to DUMBLEDOR for going back to the city\n2.get your information\n3.Selecting unit\n4.upload homeworks\n5.EXIT");
+            Console.WriteLine("1.sending letter to DUMBLEDOR for going back to the city\n2.get your information\n3.Selecting unit\n4.upload homeworks\n5.letters frome dumbledor\n6.EXIT");
             Console.ResetColor();
             int StudentChoice = Convert.ToInt32(Console.ReadLine());
             return StudentChoice;

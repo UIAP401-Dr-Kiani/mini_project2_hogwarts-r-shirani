@@ -143,29 +143,32 @@ namespace hagwarts
                                 Console.WriteLine("user was found successfuly\n");
                                 Console.ResetColor();
                                 int DumbledorChoice = Menus.DumbledorMenu();
-                                switch (DumbledorChoice)
+                                while (DumbledorChoice != 4)
                                 {
-                                    case 1://send letter
-                                        {
-                                            Dumbledore.SendLetterToStudents(allStudents);//send letter to students
-                                            break;
-                                        }
-                                    case 2://gardening
-                                        {
-                                            Dumbledore.Gardening(plant);
-                                            break;
-                                        }
-                                    case 3://answer letters frome student to get tickets
-                                        {
-                                            dumbledore.AnswerLetters();
-                                            break;
-                                        }
-                                    case 4://exit
-                                        {
-                                            break;
-                                        }
+                                    switch (DumbledorChoice)
+                                    {
+                                        case 1://send letter
+                                            {
+                                                Dumbledore.SendLetterToStudents(allStudents);//send letter to students
+                                                break;
+                                            }
+                                        case 2://gardening
+                                            {
+                                                Dumbledore.Gardening(plant);
+                                                break;
+                                            }
+                                        case 3://answer letters frome student to get tickets
+                                            {
+                                                dumbledore.AnswerLetters(allStudents);
+                                                break;
+                                            }
+                                        case 4://exit
+                                            {
+                                                break;
+                                            }
+                                    }
+                                    DumbledorChoice = Menus.DumbledorMenu();
                                 }
-                                break;
                             }
                             else
                             {
@@ -175,6 +178,7 @@ namespace hagwarts
                                 break;
                             }
                         }
+                        break;
                     case 2://student
                         {
                             bool findUser = false;
@@ -191,35 +195,44 @@ namespace hagwarts
                                     Console.ResetColor();
                                     findUser = true;
                                     int StudentChoice = Menus.StudentMenu();
-                                    switch (StudentChoice)
+                                    while (StudentChoice != 6)
                                     {
-                                        case 1://send letter to dumbledor for going back to city
-                                            {
-                                                student.SendLetterToDumbledor(x.FirstName, x.LastName, x.FatherName);
-                                                break;
-                                            }
-                                        case 2://get information
-                                            {
-                                                Console.ForegroundColor = ConsoleColor.Green;
-                                                Console.WriteLine($"Name: {x.FirstName}\nLastName: {x.LastName}\nfather's name: {x.FatherName}\n" +
-                                                    $"gender: {x.Gender}\nbirthday: {x.BirthDay}\nbreed type: {x.BreedType}\npet: {x.Pet}\n" +
-                                                    $"baggage: {x.Baggage}\nGroup Name: {x.GroupName}\ncurriculum: {x.Curriculum}\nTerm: {x.Term}\n" +
-                                                    $"passed units: {x.PassedUnits}\ndormitory code: {x.DormitoryNumbere}\n");
-                                                Console.ResetColor();
-                                                break;
-                                            }
-                                        case 3://selecting unit
-                                            {
-                                                break;
-                                            }
-                                        case 4://upload homeworks
-                                            {
-                                                break;
-                                            }
-                                        case 5://exit
-                                            {
-                                                break;
-                                            }
+                                        switch (StudentChoice)
+                                        {
+                                            case 1://send letter to dumbledor for going back to city
+                                                {
+                                                    student.SendLetterToDumbledor(x.FirstName, x.LastName, x.FatherName,allStudents);
+                                                    break;
+                                                }
+                                            case 2://get information
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Green;
+                                                    Console.WriteLine($"Name: {x.FirstName}\nLastName: {x.LastName}\nfather's name: {x.FatherName}\n" +
+                                                        $"gender: {x.Gender}\nbirthday: {x.BirthDay}\nbreed type: {x.BreedType}\npet: {x.Pet}\n" +
+                                                        $"baggage: {x.Baggage}\nGroup Name: {x.GroupName}\ncurriculum: {x.Curriculum}\nTerm: {x.Term}\n" +
+                                                        $"passed units: {x.PassedUnits}\ndormitory code: {x.DormitoryNumbere}\n");
+                                                    Console.ResetColor();
+                                                    break;
+                                                }
+                                            case 3://selecting unit
+                                                {
+                                                    break;
+                                                }
+                                            case 4://upload homeworks
+                                                {
+                                                    break;
+                                                }
+                                            case 5://see letters from dumbledor
+                                                {
+                                                    Console.WriteLine(x.ReceivedLetter);
+                                                    break;
+                                                }
+                                            case 6://exit
+                                                {
+                                                    break;
+                                                }
+                                        }
+                                        StudentChoice = Menus.StudentMenu();
                                     }
                                     break;
                                 }
@@ -249,29 +262,33 @@ namespace hagwarts
                                     Console.ResetColor();
                                     findUser = true;
                                     int ProfessorChioce = Menus.ProfessorMenu();
-                                    switch (ProfessorChioce)
+                                    while (ProfessorChioce != 5)
                                     {
-                                        case 1://define lessons
-                                            {
-                                                professor.DefineLesson(lessons, allProfessors);
-                                                break;
-                                            }
-                                        case 2://define practice
-                                            {
-                                                break;
-                                            }
-                                        case 3://set score for students
-                                            {
-                                                break;
-                                            }
-                                        case 4://confrim students grade
-                                            {
-                                                break;
-                                            }
-                                        case 5://exit
-                                            {
-                                                break;
-                                            }
+                                        switch (ProfessorChioce)
+                                        {
+                                            case 1://define lessons
+                                                {
+                                                    professor.DefineLesson(lessons, allProfessors);
+                                                    break;
+                                                }
+                                            case 2://define practice
+                                                {
+                                                    break;
+                                                }
+                                            case 3://set score for students
+                                                {
+                                                    break;
+                                                }
+                                            case 4://confrim students grade
+                                                {
+                                                    break;
+                                                }
+                                            case 5://exit
+                                                {
+                                                    break;
+                                                }
+                                        }
+                                        ProfessorChioce = Menus.ProfessorMenu();
                                     }
                                     break;
                                 }
