@@ -44,7 +44,7 @@ namespace hagwarts
         {
             foreach (var x in students)//sending tickets to all requests
             {
-                if (x.letterToDum== $"hi mr.dumbledor.I am {x.FirstName},{x.LastName},and my father's name is:{x.FatherName}.I wanna go back to my city.please send me a ticket.Thank you")
+                if (x.letterToDumbledor== $"hi mr.dumbledor.I am {x.FirstName},{x.LastName},and my father's name is:{x.FatherName}.I wanna go back to my city.please send me a ticket.Thank you")
                 {
                     x.ReceivedLetter = "ticket was sent";
                 }

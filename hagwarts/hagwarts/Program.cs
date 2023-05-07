@@ -186,9 +186,9 @@ namespace hagwarts
                             string enteredUserName = Console.ReadLine();
                             Console.WriteLine("please Enter your password:");
                             string enteredPassWord = Console.ReadLine();
-                            foreach (var x in allStudents)
+                            foreach (var std in allStudents)
                             {
-                                if (x.Role == Role.student && x.Password == enteredPassWord && x.UserName == enteredUserName)
+                                if (std.Role == Role.student && std.Password == enteredPassWord && std.UserName == enteredUserName)
                                 {
                                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("user was found successfuly\n");
@@ -201,16 +201,16 @@ namespace hagwarts
                                         {
                                             case 1://send letter to dumbledor for going back to city
                                                 {
-                                                    student.SendLetterToDumbledor(x.FirstName, x.LastName, x.FatherName,allStudents);
+                                                    std.SendLetterToDumbledor(std.FirstName, std.LastName, std.FatherName,allStudents);
                                                     break;
                                                 }
                                             case 2://get information
                                                 {
                                                     Console.ForegroundColor = ConsoleColor.Green;
-                                                    Console.WriteLine($"Name: {x.FirstName}\nLastName: {x.LastName}\nfather's name: {x.FatherName}\n" +
-                                                        $"gender: {x.Gender}\nbirthday: {x.BirthDay}\nbreed type: {x.BreedType}\npet: {x.Pet}\n" +
-                                                        $"baggage: {x.Baggage}\nGroup Name: {x.GroupName}\ncurriculum: {x.Curriculum}\nTerm: {x.Term}\n" +
-                                                        $"passed units: {x.PassedUnits}\ndormitory code: {x.DormitoryNumbere}\n");
+                                                    Console.WriteLine($"Name: {std.FirstName}\nLastName: {std.LastName}\nfather's name: {std.FatherName}\n" +
+                                                        $"gender: {std.Gender}\nbirthday: {std.BirthDay}\nbreed type: {std.BreedType}\npet: {std.Pet}\n" +
+                                                        $"baggage: {std.Baggage}\nGroup Name: {std.GroupName}\ncurriculum: {std.Curriculum}\nTerm: {std.Term}\n" +
+                                                        $"passed units: {std.PassedUnits}\ndormitory code: {std.DormitoryNumbere}\n");
                                                     Console.ResetColor();
                                                     break;
                                                 }
@@ -224,7 +224,7 @@ namespace hagwarts
                                                 }
                                             case 5://see letters from dumbledor
                                                 {
-                                                    Console.WriteLine(x.ReceivedLetter);
+                                                    Console.WriteLine(std.ReceivedLetter);
                                                     break;
                                                 }
                                             case 6://exit
@@ -253,9 +253,9 @@ namespace hagwarts
                             string enteredUserName = Console.ReadLine();
                             Console.WriteLine("please Enter your password:");
                             string enteredPassWord = Console.ReadLine();
-                            foreach (AllowedPerson x in persons)
+                            foreach (AllowedPerson person in persons)
                             {
-                                if (x.Role == Role.teacher && x.Password == enteredPassWord && x.UserName == enteredUserName)
+                                if (person.Role == Role.teacher && person.Password == enteredPassWord && person.UserName == enteredUserName)
                                 {
                                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("user was found successfuly\n");

@@ -11,14 +11,14 @@ namespace hagwarts
         public List<string> PassedUnits { get; set; }
         public int Term { get; set; }
         public int DormitoryNumbere { get; set; }
-        public string letterToDum { get; set; }
+        public string letterToDumbledor { get; set; }
         public void SendLetterToDumbledor(string name,string family,string father,List<Student> student)
         {
-            foreach(var x in student)
+            foreach(var std in student)
             {
-                if(x.FirstName==name)
+                if(std.FirstName==name)
                 {
-                    x.letterToDum= $"hi mr.dumbledor.I am {name},{family},and my father's name is:{father}." +
+                    std.letterToDumbledor= $"hi mr.dumbledor.I am {name},{family},and my father's name is:{father}." +
                 $"I wanna go back to my city.please send me a ticket.Thank you";
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("letterToDum was sent to dumbledor successfuly");

@@ -30,21 +30,21 @@ namespace hagwarts
             }
             lessons.Add(newLesson);
         }
-        public void SetScor(List<Student> student)
+        public void SetScor(List<Student> students)
         {
             bool findUser = false, findLesson = false;
             Console.WriteLine("please enter student's name");
             string enterStudentName=Console.ReadLine();
             Console.WriteLine("please enter student's name");
             string enterStudentFamily=Console.ReadLine();
-            foreach (var x in student)
+            foreach (var student in students)
             {
-                if(x.FirstName==enterStudentName && x.LastName==enterStudentFamily)
+                if(student.FirstName==enterStudentName && student.LastName==enterStudentFamily)
                 {
                     findUser = true;
                     Console.WriteLine("please enter lesson:");
                     string enterStudentLesson=Console.ReadLine();
-                    foreach(var lessonName in x.Curriculum)
+                    foreach(var lessonName in student.Curriculum)
                     {
                         if(lessonName.Name==enterStudentLesson)
                         {
