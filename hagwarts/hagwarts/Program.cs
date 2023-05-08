@@ -216,6 +216,7 @@ namespace hagwarts
                                                 }
                                             case 3://selecting unit
                                                 {
+                                                    student.SelectingUnits(lessons, allStudents, std.FirstName, std.LastName);
                                                     break;
                                                 }
                                             case 4://upload homeworks
@@ -277,6 +278,7 @@ namespace hagwarts
                                                 }
                                             case 3://set score for students
                                                 {
+                                                    professor.SetScor(allStudents);
                                                     break;
                                                 }
                                             case 4://confrim students grade
