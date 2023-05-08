@@ -50,7 +50,10 @@ namespace hagwarts
                         {
                             findLesson = true;
                             Console.WriteLine("please enter the grade");
-                            //= Convert.ToDouble(Console.ReadLine());
+                            lessonName.StudentGrade= Convert.ToDouble(Console.ReadLine());
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("scor was recorded successfuly");
+                            Console.ResetColor();
                         }
                     }
                     if(findLesson==false)
